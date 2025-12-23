@@ -1,0 +1,114 @@
+/* Progress bar */
+.progress {
+    height: 8px;
+    margin: 10px 0;
+}
+
+/* Sentence grouping */
+.sentence {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    border-left: 3px solid #337ab7;
+}
+
+/* Word wrapper */
+.btn-group.word-wrapper {
+    margin: 3px 2px;
+}
+
+.word-wrapper .word {
+    border: 2px solid #ddd;
+    transition: all 0.15s ease;
+}
+
+.word-wrapper .word:hover {
+    border-color: #337ab7;
+    background: #e8f4ff;
+}
+
+.word-wrapper .word.active {
+    border-color: #337ab7;
+    background: #337ab7;
+    color: #fff;
+}
+
+/* Tagged words */
+.word-wrapper.done .word {
+    background: #dff0d8;
+    border-color: #5cb85c;
+    color: #3c763d;
+}
+
+.word-wrapper.done .word.active {
+    background: #5cb85c;
+    color: #fff;
+}
+
+/* Dropdown menu */
+.word-wrapper .dropdown-menu {
+    min-width: 200px;
+    padding: 5px 0;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.word-wrapper .dropdown-menu li a.tag {
+    padding: 6px 12px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.word-wrapper .dropdown-menu li a.tag:hover {
+    background: #337ab7;
+    color: #fff;
+}
+
+.word-wrapper .dropdown-menu li a.tag:hover .label-pos {
+    background: #fff;
+    color: #337ab7;
+}
+
+.word-wrapper .dropdown-menu li a.tag.selected {
+    background: #dff0d8;
+    color: #3c763d;
+}
+
+.word-wrapper .dropdown-menu li a.tag.selected .label-pos {
+    background: #5cb85c;
+    color: #fff;
+}
+
+/* POS tag label */
+.label-pos {
+    background: #5bc0de;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 3px 6px;
+    min-width: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Keyboard hints */
+.keyboard-hints {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #666;
+}
+
+.keyboard-hints kbd {
+    padding: 2px 6px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 #ccc;
+    font-family: monospace;
+    color: #333;
+}
