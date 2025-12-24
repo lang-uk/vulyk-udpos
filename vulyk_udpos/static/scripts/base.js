@@ -55,17 +55,27 @@ $(function () {
     }
 
     function selectNext() {
-        select(
-            words_wrapper.find("a.word.active").parent().nextAll(".word-wrapper:first"),
-            true
-        );
+        var current = words_wrapper.find("a.word.active").parent(),
+            next = current.nextAll(".word-wrapper:first");
+
+        // If no next word in current sentence, try first word of next sentence
+        if (!next.length) {
+            next = current.closest(".sentence").next(".sentence").find(".word-wrapper:first");
+        }
+
+        select(next, true);
     }
 
     function selectPrev() {
-        select(
-            words_wrapper.find("a.word.active").parent().prevAll(".word-wrapper:first"),
-            true
-        );
+        var current = words_wrapper.find("a.word.active").parent(),
+            prev = current.prevAll(".word-wrapper:first");
+
+        // If no previous word in current sentence, try last word of previous sentence
+        if (!prev.length) {
+            prev = current.closest(".sentence").prev(".sentence").find(".word-wrapper:last");
+        }
+
+        select(prev, true);
     }
 
     function updateProgress() {
@@ -112,14 +122,31 @@ $(function () {
 
         var el = $(this),
             wrapper = el.closest(".word-wrapper"),
-            pos = el.data("pos");
+            pos = el.data("pos"),
+            wasAlreadyDone = wrapper.hasClass("done");
 
-        wrapper.addClass("done").data("pos", pos);
+        // Remove any existing POS class
+        wrapper.removeClass(function (index, className) {
+            return (className.match(/\bpos-\S+/g) || []).join(" ");
+        });
+
+        // Remove existing POS label
+        wrapper.find(".pos-label").remove();
+
+        // Add done state, POS class, and update data
+        wrapper.addClass("done pos-" + pos).data("pos", pos);
         wrapper.find("a.tag").removeClass("selected");
         el.addClass("selected");
 
+        // Add new POS label
+        wrapper.prepend('<span class="pos-label pos-' + pos + '">' + pos + '</span>');
+
         updateProgress();
-        window.setTimeout(selectNext, 0);
+
+        // Only advance to next word if this was not already tagged
+        if (!wasAlreadyDone) {
+            window.setTimeout(selectNext, 0);
+        }
     });
 
     // Handle word click
@@ -156,9 +183,19 @@ $(function () {
     $(document.body).on("vulyk.next", function (e, data) {
         var sentences = data.result.task.data;
 
-        console.log("Loaded sentences for UD POS tagging:", sentences);
         output.html(template(sentences));
         words_wrapper = output.find(".word-wrapper");
+
+        // Add POS classes and labels to pre-tagged words
+        words_wrapper.filter(".done").each(function () {
+            var wrapper = $(this),
+                pos = wrapper.data("pos");
+
+            if (pos) {
+                wrapper.addClass("pos-" + pos);
+                wrapper.prepend('<span class="pos-label pos-' + pos + '">' + pos + '</span>');
+            }
+        });
 
         select(words_wrapper.eq(0), true);
         updateProgress();
