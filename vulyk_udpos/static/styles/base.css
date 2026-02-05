@@ -140,6 +140,16 @@
 }
 
 /* indigo */
+.pos-PARTICIPLE {
+    background-color: #7c4dff !important;
+}
+
+/* violet */
+.pos-CONVERB {
+    background-color: #ff6e40 !important;
+}
+
+/* deep orange */
 .pos-X {
     background-color: #424242 !important;
 }
@@ -230,6 +240,16 @@
 .word-wrapper.done.pos-VERB .word {
     background: #3f51b5;
     border-color: #303f9f;
+}
+
+.word-wrapper.done.pos-PARTICIPLE .word {
+    background: #7c4dff;
+    border-color: #651fff;
+}
+
+.word-wrapper.done.pos-CONVERB .word {
+    background: #ff6e40;
+    border-color: #ff3d00;
 }
 
 .word-wrapper.done.pos-X .word {

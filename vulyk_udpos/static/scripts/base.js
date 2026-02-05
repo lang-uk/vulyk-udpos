@@ -207,11 +207,21 @@ $(function () {
         if (done === total) {
             callback(serialize());
         } else {
-            // Focus on first untagged word
+            // Focus on first untagged word and re-enable buttons
+            $("a#save-button, a#skip-button").removeClass("disabled");
             select(words_wrapper.filter(":not(.done)").eq(0), true);
         }
 
     }).on("vulyk.skip", function (e, callback) {
         callback();
+    }).on("vulyk.task_error", function (e, error) {
+        var errors;
+        if (error.errors) {
+            errors = error.errors.join("<br/>");
+        } else {
+            errors = "An unknown error occurred.";
+        }
+        
+        output.html("<div class='alert alert-danger'>" + errors + "</div>");
     });
 });

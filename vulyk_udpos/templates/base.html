@@ -18,23 +18,25 @@
         <div class="btn-group word-wrapper{{#if pos}} done{{/if}}"{{#if pos}} data-pos="{{ pos }}"{{/if}}>
             <a href="#" class="btn btn-default dropdown-toggle word" data-toggle="dropdown" aria-expanded="false">{{ word }}</a>
             <ul class="dropdown-menu" role="menu">
+                <li><a class="tag{{#ifEquals pos 'NOUN'}} selected{{/ifEquals}}" href="#" data-pos="NOUN"><span class="label label-pos pos-NOUN">NOUN</span> іменник</a></li>
+                <li><a class="tag{{#ifEquals pos 'PUNCT'}} selected{{/ifEquals}}" href="#" data-pos="PUNCT"><span class="label label-pos pos-PUNCT">PUNCT</span> пунктуація</a></li>
+                <li><a class="tag{{#ifEquals pos 'VERB'}} selected{{/ifEquals}}" href="#" data-pos="VERB"><span class="label label-pos pos-VERB">VERB</span> дієслово</a></li>
                 <li><a class="tag{{#ifEquals pos 'ADJ'}} selected{{/ifEquals}}" href="#" data-pos="ADJ"><span class="label label-pos pos-ADJ">ADJ</span> прикметник</a></li>
                 <li><a class="tag{{#ifEquals pos 'ADP'}} selected{{/ifEquals}}" href="#" data-pos="ADP"><span class="label label-pos pos-ADP">ADP</span> прийменник</a></li>
                 <li><a class="tag{{#ifEquals pos 'ADV'}} selected{{/ifEquals}}" href="#" data-pos="ADV"><span class="label label-pos pos-ADV">ADV</span> прислівник</a></li>
-                <li><a class="tag{{#ifEquals pos 'AUX'}} selected{{/ifEquals}}" href="#" data-pos="AUX"><span class="label label-pos pos-AUX">AUX</span> допоміжне дієслово</a></li>
-                <li><a class="tag{{#ifEquals pos 'CCONJ'}} selected{{/ifEquals}}" href="#" data-pos="CCONJ"><span class="label label-pos pos-CCONJ">CCONJ</span> сурядний сполучник</a></li>
-                <li><a class="tag{{#ifEquals pos 'DET'}} selected{{/ifEquals}}" href="#" data-pos="DET"><span class="label label-pos pos-DET">DET</span> детермінатив</a></li>
-                <li><a class="tag{{#ifEquals pos 'INTJ'}} selected{{/ifEquals}}" href="#" data-pos="INTJ"><span class="label label-pos pos-INTJ">INTJ</span> вигук</a></li>
-                <li><a class="tag{{#ifEquals pos 'NOUN'}} selected{{/ifEquals}}" href="#" data-pos="NOUN"><span class="label label-pos pos-NOUN">NOUN</span> іменник</a></li>
-                <li><a class="tag{{#ifEquals pos 'NUM'}} selected{{/ifEquals}}" href="#" data-pos="NUM"><span class="label label-pos pos-NUM">NUM</span> числівник</a></li>
-                <li><a class="tag{{#ifEquals pos 'PART'}} selected{{/ifEquals}}" href="#" data-pos="PART"><span class="label label-pos pos-PART">PART</span> частка</a></li>
                 <li><a class="tag{{#ifEquals pos 'PRON'}} selected{{/ifEquals}}" href="#" data-pos="PRON"><span class="label label-pos pos-PRON">PRON</span> займенник</a></li>
+                <li><a class="tag{{#ifEquals pos 'DET'}} selected{{/ifEquals}}" href="#" data-pos="DET"><span class="label label-pos pos-DET">DET</span> детермінатив</a></li>
+                <li><a class="tag{{#ifEquals pos 'CCONJ'}} selected{{/ifEquals}}" href="#" data-pos="CCONJ"><span class="label label-pos pos-CCONJ">CCONJ</span> сурядний сполучник</a></li>
                 <li><a class="tag{{#ifEquals pos 'PROPN'}} selected{{/ifEquals}}" href="#" data-pos="PROPN"><span class="label label-pos pos-PROPN">PROPN</span> власна назва</a></li>
-                <li><a class="tag{{#ifEquals pos 'PUNCT'}} selected{{/ifEquals}}" href="#" data-pos="PUNCT"><span class="label label-pos pos-PUNCT">PUNCT</span> пунктуація</a></li>
+                <li><a class="tag{{#ifEquals pos 'PART'}} selected{{/ifEquals}}" href="#" data-pos="PART"><span class="label label-pos pos-PART">PART</span> частка</a></li>
                 <li><a class="tag{{#ifEquals pos 'SCONJ'}} selected{{/ifEquals}}" href="#" data-pos="SCONJ"><span class="label label-pos pos-SCONJ">SCONJ</span> підрядний сполучник</a></li>
-                <li><a class="tag{{#ifEquals pos 'SYM'}} selected{{/ifEquals}}" href="#" data-pos="SYM"><span class="label label-pos pos-SYM">SYM</span> символ</a></li>
-                <li><a class="tag{{#ifEquals pos 'VERB'}} selected{{/ifEquals}}" href="#" data-pos="VERB"><span class="label label-pos pos-VERB">VERB</span> дієслово</a></li>
+                <li><a class="tag{{#ifEquals pos 'NUM'}} selected{{/ifEquals}}" href="#" data-pos="NUM"><span class="label label-pos pos-NUM">NUM</span> числівник</a></li>
+                <li><a class="tag{{#ifEquals pos 'PARTICIPLE'}} selected{{/ifEquals}}" href="#" data-pos="PARTICIPLE"><span class="label label-pos pos-PARTICIPLE">PARTICIPLE</span> дієприкметник</a></li>
+                <li><a class="tag{{#ifEquals pos 'AUX'}} selected{{/ifEquals}}" href="#" data-pos="AUX"><span class="label label-pos pos-AUX">AUX</span> допоміжне дієслово</a></li>
                 <li><a class="tag{{#ifEquals pos 'X'}} selected{{/ifEquals}}" href="#" data-pos="X"><span class="label label-pos pos-X">X</span> інше</a></li>
+                <li><a class="tag{{#ifEquals pos 'CONVERB'}} selected{{/ifEquals}}" href="#" data-pos="CONVERB"><span class="label label-pos pos-CONVERB">CONVERB</span> дієприслівник</a></li>
+                <li><a class="tag{{#ifEquals pos 'INTJ'}} selected{{/ifEquals}}" href="#" data-pos="INTJ"><span class="label label-pos pos-INTJ">INTJ</span> вигук</a></li>
+                <li><a class="tag{{#ifEquals pos 'SYM'}} selected{{/ifEquals}}" href="#" data-pos="SYM"><span class="label label-pos pos-SYM">SYM</span> символ</a></li>
             </ul>
         </div>
         {{/each}}
